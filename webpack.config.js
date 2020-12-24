@@ -31,6 +31,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+          "postcss-loader"
+        ],
+      },
     ],
   },
   resolve: {
@@ -62,7 +71,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html', //source html
-      favicon: 'src/static/images/favicon.png'
+      // favicon: 'src/static/images/favicon.png'
     }),
     new ErrorOverlayPlugin(),
   ],
