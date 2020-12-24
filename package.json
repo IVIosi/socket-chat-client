@@ -1,0 +1,66 @@
+{
+  "name": "socket-chat-client",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "tsc && eslint src/**/*.{ts,tsx,js} --fix",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "Mostafa Sameti",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js}": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.4",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "error-overlay-webpack-plugin": "^0.4.1",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.0",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.3.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
