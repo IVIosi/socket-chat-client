@@ -1,0 +1,33 @@
+@import '~styles/base';
+
+.button {
+  display: flex;
+  border-radius: $spacing;
+  padding: $spacing $spacing * 2;
+
+  &__primary {
+    color: $white;
+    background-color: $blue;
+    &:hover {
+      background-color: rgba($blue, 0.8);
+    }
+  }
+
+  &__secondary {
+    color: $black;
+    border: 1px solid $black;
+    background-color: $white;
+
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
+  }
+
+  &__icon {
+    margin-right: $spacing;
+    & svg {
+      height: $spacing * 2;
+      width: $spacing * 2;
+    }
+  }
+}
