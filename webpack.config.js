@@ -32,7 +32,13 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        exclude: /node_modules/,
+        use: ['file-loader'],
+      },
+      {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
           "style-loader",
           "css-loader",
@@ -45,6 +51,9 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
     plugins: [new TsconfigPathsPlugin({ configFile: 'tsconfig.json' })],
+    alias: {
+      styles: path.join(__dirname, './src/static/styles') 
+  }
   },
   devtool: 'source-map',
   devServer: {

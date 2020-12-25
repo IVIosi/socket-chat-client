@@ -26,6 +26,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@helpers/*": ["helpers/*"],
+      "@static/*": ["static/*"]
     }
   },
   "include": [

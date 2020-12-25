@@ -16,6 +16,7 @@ module.exports = {
   moduleNameMapper: {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@helpers/(.*)$': '<rootDir>/src/helpers/$1',
+    '^@static/(.*)$': '<rootDir>/src/static/$1',
   },
   // Test spec file resolution pattern
   // Matches parent folder `__tests__` and filename
