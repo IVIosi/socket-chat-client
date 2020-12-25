@@ -1,0 +1,20 @@
+@use '~styles/helpers';
+@import '~styles/base';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  color: $primary-text-color;
+  background-color: $primary-background-color;
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid $border-color;
+  @include helpers.rounded-corners;
+
+  &__title {
+    font-size: 24rem;
+    line-height: 36rem;
+  }
+  &__settings {
+  }
+}
