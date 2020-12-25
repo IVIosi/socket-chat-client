@@ -1,0 +1,53 @@
+@import '~styles/base';
+
+.radio-button {
+  display: block;
+  position: relative;
+  padding-left: 24px;
+  margin: 16px;
+  cursor: pointer;
+  font-size: 12rem;
+  line-height: 16rem;
+  user-select: none;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .radio-button__checkmark--unchecked {
+      background-color: #ccc;
+    }
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+
+    &--checked {
+      background-color: $blue;
+      &:after {
+        display: block;
+        top: 6px;
+        left: 6px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: white;
+      }
+    }
+  }
+}
