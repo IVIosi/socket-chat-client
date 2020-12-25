@@ -1,3 +1,9 @@
-@import 'static/styles/normalize';
-@import 'static/styles/resets';
-@import 'static/styles/typography';
+@use '~styles/helpers';
+@import '~styles/base';
+
+main {
+  background-color: $primary-background-color;
+  @include helpers.rounded-corners;
+  margin: 16px;
+  padding: 16px;
+}
