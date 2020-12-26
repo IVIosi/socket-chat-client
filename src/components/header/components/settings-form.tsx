@@ -17,7 +17,7 @@ const SettingsForm: FC = () => {
   };
 
   const handleResetSettings = () => {
-    setSettings({ ...defaultSettings, userName: settings.userName });
+    setSettings({ ...defaultSettings, userID: settings.userID });
   };
 
   return (
