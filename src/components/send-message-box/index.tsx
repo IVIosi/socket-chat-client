@@ -1,10 +1,14 @@
-import React, { ChangeEvent, KeyboardEvent, FC, useState, useContext } from 'react';
+import React, { ChangeEvent, KeyboardEvent, FC, useState, useContext, FormEvent } from 'react';
 import './style.scss';
 
 import Button from '@components/ui-kit/button';
-import { SettingsContext } from 'app';
+import { ChatMessage, SettingsContext } from 'app';
 
-const SendMessageBox: FC = () => {
+interface SendMessageBoxProps {
+  onSendMessage: (msg: ChatMessage) => void;
+}
+
+const SendMessageBox: FC<SendMessageBoxProps> = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
   const { settings } = useContext(SettingsContext);
 
@@ -17,17 +21,30 @@ const SendMessageBox: FC = () => {
       if (settings.sendWith === 'enter') {
         e.preventDefault();
 
-        console.log('send with enter', message);
-        setMessage('');
+        handleSendMessage();
       } else if (settings.sendWith === 'ctrl+enter' && e.ctrlKey) {
-        console.log('send with ctrl + enter', message);
-        setMessage('');
+        handleSendMessage();
       }
     }
   };
 
+  const handleSendMessage = (e?: FormEvent) => {
+    e && e.preventDefault();
+    if (message) {
+      onSendMessage({
+        avatar: '',
+        userID: settings.userID,
+        userName: settings.userName,
+        content: message,
+        type: 'text',
+        time: new Date().getTime(),
+      });
+      setMessage('');
+    }
+  };
+
   return (
-    <form className="send-message-box">
+    <form className="send-message-box" onSubmit={(e) => handleSendMessage(e)}>
       <textarea
         className="send-message-box__textarea"
         placeholder="Enter your message here"
@@ -53,6 +70,7 @@ const SendMessageBox: FC = () => {
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
         }
+        onClick={handleSendMessage}
       >
         Send
       </Button>
