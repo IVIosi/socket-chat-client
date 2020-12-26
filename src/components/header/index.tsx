@@ -11,7 +11,7 @@ const Header: FC = () => {
 
   return (
     <header className="header">
-      <h1 className="header__title">Socket Chat Clinet</h1>
+      <h1 className="header__title">Socket Chat Client</h1>
       <div className="header__settings">
         <Button
           type="secondary"
