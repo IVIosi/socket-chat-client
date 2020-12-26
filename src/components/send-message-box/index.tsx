@@ -13,6 +13,7 @@ import Button from '@components/ui-kit/button';
 import { ChatMessage, SettingsContext } from 'app';
 import Modal, { useModal } from '@components/ui-kit/modal';
 import Input from '@components/ui-kit/input';
+import { debounce } from '@helpers/function-helper';
 
 interface SendMessageBoxProps {
   disabled: boolean;
@@ -101,7 +102,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
           render={() => (
             <>
               <p>Image link:</p>
-              <Input defaultValue={imageLink} onChange={(v) => setImageLink(v)} />
+              <Input defaultValue={imageLink} onChange={debounce((v) => setImageLink(v), 1000)} />
               <a className="send-message-box__link" onClick={(e) => handleSendImage(e)}>
                 send
               </a>

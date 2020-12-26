@@ -5,6 +5,7 @@ import { SettingsContext, Settings, defaultSettings } from 'app';
 import Button from '@components/ui-kit/button';
 import RadioButton from '@components/ui-kit/radio-button';
 import Input from '@components/ui-kit/input';
+import { debounce } from '@helpers/function-helper';
 
 const SettingsForm: FC = () => {
   const { settings, setSettings } = useContext(SettingsContext);
@@ -25,7 +26,7 @@ const SettingsForm: FC = () => {
       <p>Username:</p>
       <Input
         defaultValue={settings.userName}
-        onChange={(v) => handleUpdateSettings('userName', v)}
+        onChange={debounce((v) => handleUpdateSettings('userName', v), 1000)}
       />
       <p>Clock Display:</p>
       <RadioButton
