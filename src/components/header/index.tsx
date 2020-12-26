@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({ socketStatus }) => {
 
   return (
     <header className="header">
-      {socketStatus === 'error' && <span>Can't connect to server!</span>}
+      {socketStatus === 'error' && <span>Cant connect to server!</span>}
       <h1 className="header__title">Socket Chat Clinet</h1>
       <div className="header__settings">
         <Button

@@ -1,4 +1,4 @@
-import React, { createContext, FC, useState } from 'react';
+import React, { createContext, FC, useEffect, useState } from 'react';
 
 import './style.scss';
 
@@ -42,10 +42,12 @@ const App: FC = () => {
   const { socket, socketStatus } = useSocket();
   const [allMessages, setAllMessages] = useState<Array<ChatMessage>>([]);
 
-  socket?.on('chat message', (msg: string) => {
-    const parsedMessage = JSON.parse(msg) as ChatMessage;
-    setAllMessages((prevState) => [...prevState, parsedMessage]);
-  });
+  useEffect(() => {
+    socket?.on('chat message', (msg: string) => {
+      const parsedMessage = JSON.parse(msg) as ChatMessage;
+      setAllMessages((prevState) => [...prevState, parsedMessage]);
+    });
+  }, [socket]);
 
   const handleSendMessage = (msg: ChatMessage) => {
     socket?.emit('chat message', JSON.stringify(msg));
