@@ -58,9 +58,9 @@ const App: FC = () => {
     <SettingsContext.Provider value={{ settings, setSettings }}>
       <Header />
       <main className="main">
-        <MessagesList socketStatus={socketStatus} messages={allMessages} />
+        <MessagesList messages={allMessages} />
         <SendMessageBox
-          disabled={socketStatus === 'error'}
+          socketStatus={socketStatus}
           onSendMessage={(msg) => handleSendMessage(msg)}
         />
       </main>

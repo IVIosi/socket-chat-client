@@ -16,15 +16,16 @@ import Input from '@components/ui-kit/input';
 import { debounce } from '@helpers/function-helper';
 
 interface SendMessageBoxProps {
-  disabled: boolean;
+  socketStatus: string;
   onSendMessage: (msg: ChatMessage) => void;
 }
 
-const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) => {
+const SendMessageBox: FC<SendMessageBoxProps> = ({ socketStatus, onSendMessage }) => {
   const [message, setMessage] = useState('');
   const [imageLink, setImageLink] = useState('');
   const { open, openModal, closeModal } = useModal();
   const { settings } = useContext(SettingsContext);
+  const hasError = socketStatus === 'error';
 
   const handleChangeMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
@@ -76,10 +77,13 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
 
   return (
     <form className="send-message-box" onSubmit={(e) => handleSendMessage(e)}>
+      {hasError && (
+        <div className="send-message-box__error">Cant connect to server! retrying...</div>
+      )}
       <Button
         type="iconic"
         label="open send image form"
-        disabled={disabled}
+        disabled={hasError}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +116,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
         />
       )}
       <textarea
-        disabled={disabled}
+        disabled={hasError}
         className="send-message-box__textarea"
         placeholder="Enter your message here"
         aria-label="message input field"
@@ -123,7 +127,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
       <Button
         type="primary"
         label="send message"
-        disabled={disabled}
+        disabled={hasError}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"

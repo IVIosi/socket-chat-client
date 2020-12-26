@@ -7,6 +7,7 @@
   border-radius: $spacing;
   padding: $spacing * 2;
   display: flex;
+  position: relative;
 
   &__textarea {
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -22,5 +23,13 @@
     &:hover {
       opacity: 0.5;
     }
+  }
+
+  &__error {
+    position: absolute;
+    color: red;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
