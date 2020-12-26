@@ -55,10 +55,13 @@ const App: FC = () => {
 
   return (
     <SettingsContext.Provider value={{ settings, setSettings }}>
-      <Header socketStatus={socketStatus} />
+      <Header />
       <main className="main">
-        <MessagesList messages={allMessages} />
-        <SendMessageBox onSendMessage={(msg) => handleSendMessage(msg)} />
+        <MessagesList socketStatus={socketStatus} messages={allMessages} />
+        <SendMessageBox
+          disabled={socketStatus === 'error'}
+          onSendMessage={(msg) => handleSendMessage(msg)}
+        />
       </main>
     </SettingsContext.Provider>
   );

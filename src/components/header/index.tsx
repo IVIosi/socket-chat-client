@@ -6,16 +6,11 @@ import Modal, { useModal } from '@components/ui-kit/modal';
 
 import SettingsForm from './components/settings-form';
 
-interface HeaderProps {
-  socketStatus: string;
-}
-
-const Header: FC<HeaderProps> = ({ socketStatus }) => {
+const Header: FC = () => {
   const { open, openModal, closeModal } = useModal();
 
   return (
     <header className="header">
-      {socketStatus === 'error' && <span>Cant connect to server!</span>}
       <h1 className="header__title">Socket Chat Clinet</h1>
       <div className="header__settings">
         <Button

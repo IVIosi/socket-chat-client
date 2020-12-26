@@ -6,14 +6,18 @@ import { ChatMessage, SettingsContext } from 'app';
 import { formatTime } from '@helpers/strings-helper';
 
 interface MessagesListProps {
+  socketStatus: string;
   messages: Array<ChatMessage>;
 }
 
-const MessagesList: FC<MessagesListProps> = ({ messages }) => {
+const MessagesList: FC<MessagesListProps> = ({ messages, socketStatus }) => {
   const { settings } = useContext(SettingsContext);
 
   return (
     <div className="messages">
+      {socketStatus === 'error' && (
+        <div className="message__error">Cant connect to server! retrying...</div>
+      )}
       {messages.map((message) => (
         <div
           key={message.time}
