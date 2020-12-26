@@ -6,6 +6,7 @@ import { useLocalStorage, useSocket } from '@helpers/hooks-helper';
 import Header from '@components/header';
 import MessagesList from '@components/messages';
 import SendMessageBox from '@components/send-message-box';
+import { SvgSprite } from '@static/images/svg-sprite';
 
 export interface Settings {
   clock: '12H' | '24H';
@@ -56,6 +57,7 @@ const App: FC = () => {
 
   return (
     <SettingsContext.Provider value={{ settings, setSettings }}>
+      <SvgSprite />
       <Header />
       <main className="main">
         <MessagesList messages={allMessages} />
