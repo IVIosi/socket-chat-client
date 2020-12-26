@@ -61,6 +61,9 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     host: 'localhost',
+    proxy: {
+      '/socket.io/**': { target: env.SERVER_URL, secure: false },
+    },
   },
   optimization: {
     moduleIds: 'hashed',
