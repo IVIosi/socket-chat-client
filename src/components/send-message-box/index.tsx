@@ -76,7 +76,8 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
   return (
     <form className="send-message-box" onSubmit={(e) => handleSendMessage(e)}>
       <Button
-        type="secondary"
+        type="iconic"
+        disabled={disabled}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +102,9 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
             <>
               <p>Image link:</p>
               <Input defaultValue={imageLink} onChange={(v) => setImageLink(v)} />
-              <a onClick={(e) => handleSendImage(e)}>send</a>
+              <a className="send-message-box__link" onClick={(e) => handleSendImage(e)}>
+                send
+              </a>
             </>
           )}
         />

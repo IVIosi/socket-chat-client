@@ -3,7 +3,7 @@ import './style.scss';
 
 interface ButtonProps {
   disabled?: boolean;
-  type: 'primary' | 'secondary';
+  type: 'primary' | 'secondary' | 'iconic';
   icon?: ReactNode;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }

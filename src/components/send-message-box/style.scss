@@ -17,4 +17,10 @@
     height: 34px;
     resize: none;
   }
+
+  &__link {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }
