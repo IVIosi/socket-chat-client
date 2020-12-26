@@ -3,16 +3,15 @@ import './style.scss';
 
 interface ButtonProps {
   type: 'primary' | 'secondary';
-  icon: ReactNode;
-  text: string;
-  onClick: () => void;
+  icon?: ReactNode;
+  onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ type = 'primary', icon, text, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, type = 'primary', icon, onClick }) => {
   return (
     <button className={`button button__${type}`} onClick={onClick}>
-      <div className="button__icon">{icon}</div>
-      <span>{text}</span>
+      {icon && <div className="button__icon">{icon}</div>}
+      {children}
     </button>
   );
 };
