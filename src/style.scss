@@ -1,9 +1,12 @@
 @use '~styles/helpers';
 @import '~styles/base';
+@import '~styles/variables';
 
 main {
   background-color: $primary-background-color;
   @include helpers.rounded-corners;
   margin: 16px;
   padding: 16px;
+  max-width: 700px;
+  margin: 0 auto;
 }
