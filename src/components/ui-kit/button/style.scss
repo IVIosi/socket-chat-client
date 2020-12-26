@@ -5,6 +5,14 @@
   border-radius: $spacing;
   padding: $spacing $spacing * 2;
 
+  &:disabled {
+    background-color: rgba($black, 0.3);
+    cursor: not-allowed;
+    &:hover {
+      background-color: rgba($black, 0.3);
+    }
+  }
+
   &__primary {
     color: $white;
     background-color: $blue;

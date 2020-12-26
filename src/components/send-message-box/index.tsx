@@ -1,15 +1,28 @@
-import React, { ChangeEvent, KeyboardEvent, FC, useState, useContext, FormEvent } from 'react';
+import React, {
+  ChangeEvent,
+  KeyboardEvent,
+  FC,
+  useState,
+  useContext,
+  FormEvent,
+  MouseEvent,
+} from 'react';
 import './style.scss';
 
 import Button from '@components/ui-kit/button';
 import { ChatMessage, SettingsContext } from 'app';
+import Modal, { useModal } from '@components/ui-kit/modal';
+import Input from '@components/ui-kit/input';
 
 interface SendMessageBoxProps {
+  disabled: boolean;
   onSendMessage: (msg: ChatMessage) => void;
 }
 
-const SendMessageBox: FC<SendMessageBoxProps> = ({ onSendMessage }) => {
+const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) => {
   const [message, setMessage] = useState('');
+  const [imageLink, setImageLink] = useState('');
+  const { open, openModal, closeModal } = useModal();
   const { settings } = useContext(SettingsContext);
 
   const handleChangeMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -30,6 +43,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ onSendMessage }) => {
 
   const handleSendMessage = (e?: FormEvent) => {
     e && e.preventDefault();
+
     if (message) {
       onSendMessage({
         avatar: '',
@@ -43,9 +57,57 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ onSendMessage }) => {
     }
   };
 
+  const handleSendImage = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (imageLink) {
+      onSendMessage({
+        avatar: '',
+        userID: settings.userID,
+        userName: settings.userName,
+        content: imageLink,
+        type: 'image',
+        time: new Date().getTime(),
+      });
+      closeModal();
+      setImageLink('');
+    }
+  };
+
   return (
     <form className="send-message-box" onSubmit={(e) => handleSendMessage(e)}>
+      <Button
+        type="secondary"
+        icon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+          </svg>
+        }
+        onClick={openModal}
+      />
+      {open && (
+        <Modal
+          close={closeModal}
+          render={() => (
+            <>
+              <p>Image link:</p>
+              <Input defaultValue={imageLink} onChange={(v) => setImageLink(v)} />
+              <a onClick={(e) => handleSendImage(e)}>send</a>
+            </>
+          )}
+        />
+      )}
       <textarea
+        disabled={disabled}
         className="send-message-box__textarea"
         placeholder="Enter your message here"
         value={message}
@@ -54,6 +116,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ onSendMessage }) => {
       />
       <Button
         type="primary"
+        disabled={disabled}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +133,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ onSendMessage }) => {
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
         }
-        onClick={handleSendMessage}
+        onClick={(e) => handleSendMessage(e)}
       >
         Send
       </Button>
