@@ -1,66 +1,40 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import './style.scss';
 
 import defaultAvatar from '@static/images/avatar.png';
+import { ChatMessage, SettingsContext } from 'app';
+import { formatTime } from '@helpers/strings-helper';
 
-const Messages: FC = () => {
-  const messages = [
-    {
-      avatar: '',
-      sender: 'self',
-      content:
-        'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsumdolor',
-      time: '1h ago',
-    },
-    {
-      avatar: '',
-      sender: 'guest',
-      content:
-        'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsumdolor',
-      time: '2h ago',
-    },
-    {
-      avatar: '',
-      sender: 'self',
-      content:
-        'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsumdolor',
-      time: '3h ago',
-    },
-    {
-      avatar: '',
-      sender: 'self',
-      content:
-        'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsumdolor',
-      time: '4h ago',
-    },
-    {
-      avatar: '',
-      sender: 'guest',
-      content:
-        'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsumdolor',
-      time: '5h ago',
-    },
-    {
-      avatar: '',
-      sender: 'self',
-      content:
-        'lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsumdolor',
-      time: '6h ago',
-    },
-  ];
+interface MessagesListProps {
+  messages: Array<ChatMessage>;
+}
+
+const MessagesList: FC<MessagesListProps> = ({ messages }) => {
+  const { settings } = useContext(SettingsContext);
+
   return (
     <div className="messages">
       {messages.map((message) => (
         <div
           key={message.time}
-          className={`message ${message.sender === 'self' ? 'message--sent' : 'message--received'}`}
+          className={`message ${
+            message.userID === settings.userID ? 'message--sent' : 'message--received'
+          }`}
         >
           <div className="message__avatar">
-            <img width={48} src={message?.avatar || defaultAvatar} />
+            <img src={message?.avatar || defaultAvatar} />
           </div>
           <div className="message-content">
-            <div className="message-content__text">{message.content}</div>
-            <div className="message-content__time">{message.time}</div>
+            <div className="message-content__text">
+              {message.type === 'text' ? (
+                message.content
+              ) : (
+                <img className="message-content__image" src={message.content} />
+              )}
+            </div>
+            <div className="message-content__time">
+              {formatTime(message.time, settings.clock === '12H')}
+            </div>
           </div>
         </div>
       ))}
@@ -68,4 +42,4 @@ const Messages: FC = () => {
   );
 };
 
-export default Messages;
+export default MessagesList;
