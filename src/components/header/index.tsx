@@ -15,6 +15,7 @@ const Header: FC = () => {
       <div className="header__settings">
         <Button
           type="secondary"
+          label="open settings"
           onClick={openModal}
           icon={
             <svg

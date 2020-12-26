@@ -60,7 +60,7 @@ const SettingsForm: FC = () => {
         ]}
         onChange={(v) => handleUpdateSettings('sendWith', v)}
       />
-      <Button type="secondary" onClick={handleResetSettings}>
+      <Button type="secondary" label="reset settings" onClick={handleResetSettings}>
         Reset to default
       </Button>
     </>

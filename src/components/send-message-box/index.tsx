@@ -78,6 +78,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
     <form className="send-message-box" onSubmit={(e) => handleSendMessage(e)}>
       <Button
         type="iconic"
+        label="open send image form"
         disabled={disabled}
         icon={
           <svg
@@ -114,12 +115,14 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ disabled, onSendMessage }) =>
         disabled={disabled}
         className="send-message-box__textarea"
         placeholder="Enter your message here"
+        aria-label="message input field"
         value={message}
         onChange={handleChangeMessage}
         onKeyDown={(e) => handleKeyDown(e)}
       />
       <Button
         type="primary"
+        label="send message"
         disabled={disabled}
         icon={
           <svg
