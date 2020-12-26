@@ -8,7 +8,7 @@ import SendMessageBox from '@components/send-message-box';
 
 export interface Settings {
   clock: '12H' | '24H';
-  sendWith: 'enter' | 'cmd+enter';
+  sendWith: 'enter' | 'ctrl+enter';
   userName: string;
 }
 

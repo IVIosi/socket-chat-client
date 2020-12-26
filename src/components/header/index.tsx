@@ -85,8 +85,8 @@ const Header: FC = () => {
                     label: 'Enter',
                   },
                   {
-                    value: 'cmd+enter',
-                    label: 'Cmd+Enter',
+                    value: 'ctrl+enter',
+                    label: 'Ctrl+Enter',
                   },
                 ]}
                 onChange={(v) => handleUpdateSettings('sendWith', v)}
