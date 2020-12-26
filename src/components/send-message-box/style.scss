@@ -1,18 +1,20 @@
 @use '~styles/helpers';
-@import '~styles/base';
+@import '~styles/variables';
 
 .send-message-box {
   background-color: $white;
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: $spacing;
+  padding: $spacing * 2;
   display: flex;
 
-  &__input {
+  &__textarea {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     margin-right: $spacing * 2;
     flex-grow: 1;
     padding: $spacing;
+    height: 34px;
+    resize: none;
   }
 }
