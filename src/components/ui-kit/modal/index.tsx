@@ -54,7 +54,7 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ children, close, render }) => {
   return (
     <Portal>
-      <div className="modal">
+      <div className="modal" data-testid="modal-root">
         <div className="modal__parent">
           <div className="modal__header">
             <button className="modal__close-button" onClick={close} />

@@ -14,7 +14,14 @@ const Input: FC<InputProps> = ({ defaultValue, onChange }) => {
     onChange && onChange(e.target.value);
   };
 
-  return <input className="input" value={value} onChange={(e) => handleChange(e)} />;
+  return (
+    <input
+      data-testid="custom input"
+      className="input"
+      value={value}
+      onChange={(e) => handleChange(e)}
+    />
+  );
 };
 
 export default Input;

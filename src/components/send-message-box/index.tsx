@@ -76,7 +76,11 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ socketStatus, onSendMessage }
   };
 
   return (
-    <form className="send-message-box" onSubmit={(e) => handleSendMessage(e)}>
+    <form
+      className="send-message-box"
+      data-testid="send-message-box"
+      onSubmit={(e) => handleSendMessage(e)}
+    >
       {hasError && (
         <div className="send-message-box__error">Cant connect to server! retrying...</div>
       )}
