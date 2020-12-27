@@ -1,11 +1,12 @@
+@use '~styles/helpers';
 @import '~styles/variables';
 
 .input {
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  @include helpers.rounded-corners(0.5);
   margin-right: $spacing * 2;
   flex-grow: 1;
   padding: $spacing;
   height: 34px;
-  margin: 8px 16px;
+  margin: $spacing $spacing * 2;
 }

@@ -1,5 +1,5 @@
 @import '~styles/variables';
 
-@mixin rounded-corners {
-  border-radius: $radius;
+@mixin rounded-corners($size) {
+  border-radius: $spacing * $size;
 }

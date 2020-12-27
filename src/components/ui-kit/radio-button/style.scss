@@ -4,7 +4,7 @@
   display: block;
   position: relative;
   padding-left: 24px;
-  margin: 16px;
+  margin: $spacing * 2;
   cursor: pointer;
   font-size: 12rem;
   line-height: 16rem;
@@ -26,8 +26,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 16px;
-    width: 16px;
+    height: $spacing * 2;
+    width: $spacing * 2;
     background-color: #eee;
     border-radius: 50%;
 
