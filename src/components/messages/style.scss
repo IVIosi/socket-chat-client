@@ -11,7 +11,7 @@
 .message {
   display: flex;
   width: 70%;
-  margin: 16px 0 8px;
+  margin-top: $spacing;
 
   &__avatar {
     width: 48px;
@@ -22,12 +22,21 @@
       height: 48px;
       border-radius: 50%;
     }
+
+    &--invisible {
+      visibility: hidden;
+    }
+  }
+
+  &--visible-avatar {
+    margin-top: $spacing * 2;
   }
 
   &--sent {
     float: right;
     flex-direction: row-reverse;
   }
+
   &--received {
     float: left;
   }
@@ -36,21 +45,21 @@
 .message-content {
   display: flex;
   flex-direction: column;
-  margin: 0 16px;
+  margin: 0 $spacing * 2;
 
   &__text {
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 15px 5px rgba($black, 0.2);
     @include helpers.rounded-corners(1);
     padding: $spacing * 2;
     word-break: break-word;
 
     .message--sent & {
-      color: rgba(255, 255, 255, 1);
+      color: rgba($white, 1);
       background-color: rgba(26, 35, 59, 1);
     }
     .message--received & {
       color: rgba(78, 88, 111, 1);
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba($white, 1);
     }
   }
 
@@ -74,6 +83,6 @@
     }
     margin-top: 8px;
     font-size: 12rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba($black, 0.6);
   }
 }

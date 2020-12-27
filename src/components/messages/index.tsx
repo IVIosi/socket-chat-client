@@ -12,17 +12,23 @@ interface MessagesListProps {
 const MessagesList: FC<MessagesListProps> = ({ messages }) => {
   const { settings } = useContext(SettingsContext);
 
+  let lastMessageUserID = 0;
+
   return (
     <div className="messages">
       {messages.map((message) => {
         const isSent = message.userID === settings.userID;
+        const showAvatar = message.userID !== lastMessageUserID;
+        lastMessageUserID = message.userID;
 
         return (
           <div
             key={message.time}
-            className={`message ${isSent ? 'message--sent' : 'message--received'}`}
+            className={`message ${isSent ? 'message--sent' : 'message--received'} ${
+              showAvatar ? 'message--visible-avatar' : ''
+            }`}
           >
-            <div className="message__avatar">
+            <div className={`message__avatar ${showAvatar ? '' : 'message__avatar--invisible'}`}>
               <img src={message?.avatar || defaultAvatar} />
             </div>
             <div className="message-content">
