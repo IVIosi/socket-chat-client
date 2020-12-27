@@ -3,7 +3,7 @@
 .radio-button {
   display: block;
   position: relative;
-  padding-left: 24px;
+  padding-left: $spacing * 3;
   margin: $spacing * 2;
   cursor: pointer;
   font-size: 12rem;

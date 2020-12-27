@@ -2,7 +2,7 @@
 @import '~styles/variables';
 
 .input {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba($black, 0.2);
   @include helpers.rounded-corners(1);
   margin-right: $spacing * 2;
   flex-grow: 1;
