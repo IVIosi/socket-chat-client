@@ -29,7 +29,7 @@ const MessagesList: FC<MessagesListProps> = ({ messages }) => {
               <div className="message-content__text">
                 {!isSent && <div className="message-content__username">{message.userName}</div>}
                 {message.type === 'text' ? (
-                  message.content
+                  <p className="message-content__paragraph">{message.content}</p>
                 ) : (
                   <img className="message-content__image" src={message.content} />
                 )}

@@ -54,6 +54,10 @@
     }
   }
 
+  &__paragraph {
+    white-space: pre-wrap;
+  }
+
   &__username {
     font-weight: bold;
     margin-bottom: $spacing;
