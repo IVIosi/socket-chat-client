@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 export const SvgSprite: FC = () => (
-  <svg width="0" height="0" className="hidden">
+  <svg width="0" height="0" className="hidden" style={{ display: 'none' }}>
     <symbol
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
