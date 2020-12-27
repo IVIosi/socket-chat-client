@@ -54,6 +54,12 @@
     }
   }
 
+  &__username {
+    font-weight: bold;
+    margin-bottom: $spacing;
+    color: $blue;
+  }
+
   &__image {
     max-width: 100%;
   }
