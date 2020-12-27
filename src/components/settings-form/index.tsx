@@ -1,7 +1,6 @@
 import React, { FC, useContext } from 'react';
-import '../style.scss';
-import { SettingsContext, Settings, defaultSettings } from 'app';
 
+import { SettingsContext, Settings, defaultSettings } from 'app';
 import Button from '@components/ui-kit/button';
 import RadioButton from '@components/ui-kit/radio-button';
 import Input from '@components/ui-kit/input';

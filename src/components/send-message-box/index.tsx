@@ -9,8 +9,8 @@ import React, {
 } from 'react';
 import './style.scss';
 
-import Button from '@components/ui-kit/button';
 import { ChatMessage, SettingsContext } from 'app';
+import Button from '@components/ui-kit/button';
 import Modal, { useModal } from '@components/ui-kit/modal';
 import Input from '@components/ui-kit/input';
 import { debounce } from '@helpers/function-helper';

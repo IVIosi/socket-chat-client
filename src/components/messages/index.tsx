@@ -1,8 +1,8 @@
 import React, { FC, useContext } from 'react';
 import './style.scss';
 
-import defaultAvatar from '@static/images/avatar.png';
 import { ChatMessage, SettingsContext } from 'app';
+import defaultAvatar from '@static/images/avatar.png';
 import { formatTime } from '@helpers/strings-helper';
 
 interface MessagesListProps {

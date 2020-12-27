@@ -3,8 +3,7 @@ import './style.scss';
 
 import Button from '@components/ui-kit/button';
 import Modal, { useModal } from '@components/ui-kit/modal';
-
-import SettingsForm from './components/settings-form';
+import SettingsForm from '@components/settings-form';
 
 const Header: FC = () => {
   const { open, openModal, closeModal } = useModal();
