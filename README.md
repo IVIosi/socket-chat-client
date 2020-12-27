@@ -1,4 +1,5 @@
 # Socket Chat - Client
+[![Netlify Status](https://api.netlify.com/api/v1/badges/de5a8ed8-6659-4bde-a623-dc5386b835ad/deploy-status)](https://app.netlify.com/sites/determined-minsky-005ae7/deploys)
 
 Simple single page chat application - Client part.
 
@@ -17,7 +18,7 @@ App is powered by [React JS](http://reactjs.org/) and [socket.io](http://socket.
 TypeScript codes are compiled with Babel. All types are checked in pre-commit stage using [lint-staged](https://github.com/okonet/lint-staged) and [husky](https://github.com/typicode/husky).
 
 Styles are normalized to work properly on different browsers.
-Sass variables are used for theming. Some mixins also added for some repeated styles. PostCSS used for automated adding of vendor prefixes and polyfilling modern CSS.
+Sass variables are used for theming. Some mixins also added for some repeated styles. [PostCSS](https://github.com/postcss/postcss) used for automated adding of vendor prefixes and polyfilling modern CSS.
 
 ## Get Started Immediately
 **You’ll need to have Node 10.16.0 or later version on your local development machine.** You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to switch Node versions between different projects.
@@ -27,7 +28,8 @@ Sass variables are used for theming. Some mixins also added for some repeated st
 1. Clone project.
 2. Run ```npm ci``` in project root directory to install dependencies.
 3. Rename **.env.example** to **.env** 
-4. Start project in developement mode using ```npm run dev```
+4. Start project in developement mode using ```npm run dev```. This command will open browser automatically.
+5. Open another tab in incognito mode or in another browser and go to ```http://localhost:3000```. Now messages can be sent and received between these two tabs.
 
 ## Commands
 
