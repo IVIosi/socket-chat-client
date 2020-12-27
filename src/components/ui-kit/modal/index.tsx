@@ -62,7 +62,7 @@ const Modal: FC<ModalProps> = ({ children, close, render }) => {
           {render(children) || children}
         </div>
       </div>
-      <div className="modal__overlay" onClick={close} />
+      <div className="modal__overlay" data-testid="modal-overlay" onClick={close} />
     </Portal>
   );
 };
