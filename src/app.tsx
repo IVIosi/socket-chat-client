@@ -13,6 +13,7 @@ export interface Settings {
   sendWith: 'enter' | 'ctrl+enter';
   userID: number;
   userName: string;
+  avatar: string;
 }
 
 export interface ChatMessage {
@@ -29,6 +30,7 @@ export const defaultSettings: Settings = {
   sendWith: 'enter',
   userID: Date.now(),
   userName: `NewUser`,
+  avatar: '',
 };
 
 export const SettingsContext = createContext({

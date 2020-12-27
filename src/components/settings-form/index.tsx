@@ -27,6 +27,11 @@ const SettingsForm: FC = () => {
         defaultValue={settings.userName}
         onChange={debounce((v) => handleUpdateSettings('userName', v), 1000)}
       />
+      <p>Avatar:</p>
+      <Input
+        defaultValue={settings.avatar}
+        onChange={debounce((v) => handleUpdateSettings('avatar', v), 1000)}
+      />
       <p>Clock Display:</p>
       <RadioButton
         name="Clock"

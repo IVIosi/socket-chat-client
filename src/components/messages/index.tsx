@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, SyntheticEvent, useContext } from 'react';
 import './style.scss';
 
 import { ChatMessage, SettingsContext } from 'app';
@@ -13,6 +13,11 @@ const MessagesList: FC<MessagesListProps> = ({ messages }) => {
   const { settings } = useContext(SettingsContext);
 
   let lastMessageUserID = 0;
+
+  const handleAvatarError = (e: SyntheticEvent) => {
+    const imageTag = e.target as HTMLImageElement;
+    imageTag.src = defaultAvatar;
+  };
 
   return (
     <div className="messages">
@@ -29,7 +34,7 @@ const MessagesList: FC<MessagesListProps> = ({ messages }) => {
             }`}
           >
             <div className={`message__avatar ${showAvatar ? '' : 'message__avatar--invisible'}`}>
-              <img src={message?.avatar || defaultAvatar} />
+              <img src={message?.avatar || defaultAvatar} onError={(e) => handleAvatarError(e)} />
             </div>
             <div className="message-content">
               <div className="message-content__text">

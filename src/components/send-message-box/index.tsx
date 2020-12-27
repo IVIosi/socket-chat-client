@@ -48,7 +48,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ socketStatus, onSendMessage }
 
     if (message) {
       onSendMessage({
-        avatar: '',
+        avatar: settings.avatar,
         userID: settings.userID,
         userName: settings.userName,
         content: message,
@@ -63,7 +63,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ socketStatus, onSendMessage }
     e.preventDefault();
     if (imageLink) {
       onSendMessage({
-        avatar: '',
+        avatar: settings.avatar,
         userID: settings.userID,
         userName: settings.userName,
         content: imageLink,
