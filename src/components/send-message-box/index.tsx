@@ -108,7 +108,7 @@ const SendMessageBox: FC<SendMessageBoxProps> = ({ socketStatus, onSendMessage }
       <textarea
         disabled={hasError}
         className="send-message-box__textarea"
-        placeholder="Enter your message here"
+        placeholder="Enter message"
         aria-label="message input field"
         value={message}
         onChange={handleChangeMessage}

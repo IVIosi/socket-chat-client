@@ -19,7 +19,7 @@ const Button: FC<ButtonProps> = (props) => {
       onClick={(e) => onClick && onClick(e)}
     >
       {icon && <div className="button__icon">{icon}</div>}
-      {children}
+      <div className="button__text">{children}</div>
     </button>
   );
 };

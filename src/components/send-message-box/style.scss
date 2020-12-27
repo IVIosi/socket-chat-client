@@ -19,6 +19,15 @@
     resize: none;
   }
 
+  @media screen and (max-width: $small-device) {
+    .button__text {
+      display: none;
+    }
+    .button__icon {
+      margin-right: auto;
+    }
+  }
+
   &__link {
     &:hover {
       opacity: 0.5;
