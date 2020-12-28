@@ -57,7 +57,7 @@ const Modal: FC<ModalProps> = ({ children, close, render }) => {
       <div className="modal" data-testid="modal-root">
         <div className="modal__parent">
           <div className="modal__header">
-            <button className="modal__close-button" onClick={close} />
+            <button aria-label="close modal" className="modal__close-button" onClick={close} />
           </div>
           {render(children) || children}
         </div>
