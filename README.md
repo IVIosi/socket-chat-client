@@ -90,7 +90,7 @@ Other Features:
 
 ### Added Features:
 
-- [x] Display user avatar beside messages.
+- [x] Display user avatar beside messages (show default avatar if avatar has not been set by user).
 - [x] Show user avatar once for multiple continuous messages.
 - [x] Add a11y attributes to HTML tags.
 - [x] Display user name of received messages.
