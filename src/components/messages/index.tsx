@@ -34,7 +34,7 @@ const MessagesList: FC<MessagesListProps> = ({ messages }) => {
             }`}
           >
             <div className={`message__avatar ${showAvatar ? '' : 'message__avatar--invisible'}`}>
-              <img src={message?.avatar || defaultAvatar} onError={(e) => handleAvatarError(e)} />
+              <img src={message.avatar || defaultAvatar} onError={(e) => handleAvatarError(e)} />
             </div>
             <div className="message-content">
               <div className="message-content__text">
